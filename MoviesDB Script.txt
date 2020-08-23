@@ -1,0 +1,7 @@
+create table Movies(MovieId int Identity(1,1) primary key,Title varchar(50) not null,
+BoxOffice varchar(20),DateOfLaunch varchar(20),Genre varchar(20),Active varchar(20),HasTeaser varchar(20))
+
+
+
+create table Favorites(FavoriteId int Identity(1,1) primary key,Title varchar(50) not null,
+BoxOffice varchar(20),DateOfLaunch varchar(20),Genre varchar(20),Active varchar(20),HasTeaser varchar(20),MovieId int foreign key references Movies(MovieId))

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<movie_crusier.Models.Favorites>
+
+@{
+    ViewData["Title"] = "GetFavoriteMovies";
+}
+
+<h3>Get Favorite Movies</h3>
+
+<p>
+    <a asp-action="GetMovies">Movies</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FavoriteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoxOffice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasTeaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int Total = 0; }
+        @foreach (var item in Model)
+        {
+            Total += 1;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FavoriteId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxOffice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasTeaser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieId)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteFavoriteMovie", new { id = item.FavoriteId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="total">No of Favorites:@Total</p>
